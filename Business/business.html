@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <title>Local Business - Your Business Name</title>
+    <style>
+      #headertext {
+        position: relative;
+        top: -200px;
+        right: -270px;
+      }
+      #headertext1 {
+        position: relative;
+        top: -200px;
+        right: -300px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-blue-500 text-white p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <span class="text-2xl font-bold">Bakes & Cakes</span>
+        <ul class="flex space-x-4">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="cakes.html">Cakes</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header
+      class="bg-gray-800 text-white h-screen flex flex-col justify-center items-center"
+      style="
+        background-image: url('./images/mr-autthaporn-pradidpong-EZt7OJagHyY-unsplash.jpg');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <h1 id="headertext" class="text-5xl font-bold mb-4">
+        Welcome to Bakes & Cakes
+      </h1>
+      <p id="headertext1" class="text-lg">
+        Providing Quality Services Since 1997.
+      </p>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="container mx-auto my-8">
+      <h2 class="text-3xl font-bold mb-4">Our Services</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service Card 1 -->
+        <div class="bg-white p-6 rounded-md shadow-md">
+          <img
+            src="./images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg"
+            alt="Customer Image"
+            class="w-full h-auto mb-4"
+          />
+          <h3 class="text-xl font-bold mb-2">Service 3</h3>
+          <p>Description of Service 3.</p>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="bg-white p-6 rounded-md shadow-md">
+          <img
+            src="./images/charles-chen-w2ZFjDnUL3w-unsplash.jpg"
+            alt="Customer Image"
+            class="w-full h-auto mb-4"
+          />
+          <h3 class="text-xl font-bold mb-2">Service 3</h3>
+          <p>Description of Service 3.</p>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="bg-white p-6 rounded-md shadow-md">
+          <img
+            src="./images/umesh-soni-LDnmyOaA-ew-unsplash.jpg"
+            alt="Customer Image"
+            class="w-full h-auto mb-4"
+          />
+          <h3 class="text-xl font-bold mb-2">Service 3</h3>
+          <p>Description of Service 3.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="bg-gray-100 py-8">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-4">What Our Customers Say</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial Card 1 -->
+          <div class="bg-white p-6 rounded-md shadow-md">
+            <img
+              src="./images/alex-mccarthy-RGKdWJOUFH0-unsplash.jpg"
+              alt="Customer Image"
+              class="w-full h-auto mb-4"
+            />
+            <p class="mb-4">
+              "Great service! Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit."
+            </p>
+            <p class="font-bold">- Linda</p>
+          </div>
+
+          <!-- Testimonial Card 2 -->
+          <div class="bg-white p-6 rounded-md shadow-md">
+            <img
+              src="./images/alex-mccarthy-RGKdWJOUFH0-unsplash.jpg"
+              alt="Customer Image"
+              class="w-full h-auto mb-4"
+            />
+            <p class="mb-4">
+              "Great service! Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit."
+            </p>
+            <p class="font-bold">- Saraswathi</p>
+          </div>
+
+          <!-- Testimonial Card 3 -->
+          <div class="bg-white p-6 rounded-md shadow-md">
+            <img
+              src="./images/alex-mccarthy-RGKdWJOUFH0-unsplash.jpg"
+              alt="Customer Image"
+              class="w-full h-auto mb-4"
+            />
+            <p class="mb-4">
+              "Great service! Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit."
+            </p>
+            <p class="font-bold">- Mathews</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mx-auto my-8">
+      <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+      <p>Have a question or inquiry? Reach out to us!</p>
+      <form id="contactForm" class="mt-4">
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
+            >Your Name:</label
+          >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 text-sm font-bold mb-2"
+            >Your Email:</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label
+            for="message"
+            class="block text-gray-700 text-sm font-bold mb-2"
+            >Your Message:</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          ></textarea>
+        </div>
+        <div class="mb-6">
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Submit Inquiry
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2024 Your Business Name. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Your additional JavaScript goes here -->
+    <script>
+      // Add JavaScript code for form submission, validation, etc.
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Add your form submission logic here
+        });
+    </script>
+  </body>
+</html>

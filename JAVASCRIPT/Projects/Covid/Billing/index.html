@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <title>Billing App</title>
+  </head>
+  <body class="bg-gray-200 p-8">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+      <!-- Product Form -->
+      <form id="productForm" class="mb-4">
+        <label for="productId" class="block text-sm font-medium text-gray-600"
+          >Product ID</label
+        >
+        <input
+          type="text"
+          id="productName"
+          name="productName"
+          class="mt-1 p-2 border rounded-md w-full"
+        />
+
+        <label
+          for="productName"
+          class="block mt-2 text-sm font-medium text-gray-600"
+          >Product Name</label
+        >
+        <input
+          type="text"
+          id="productName"
+          name="productName"
+          class="mt-1 p-2 border rounded-md w-full"
+        />
+
+        <label
+          for="quantity"
+          class="block mt-2 text-sm font-medium text-gray-600"
+          >Quantity</label
+        >
+
+        <select
+          id="quantity"
+          name="quantity"
+          class="mt-1 p-2 border rounded-md w-full"
+        >
+          <!-- Generate options dynamically up to 10 using JavaScript -->
+          <script>
+            for (let i = 1; i <= 10; i++) {
+              document.write('<option value="' + i + '">' + i + "</option>");
+            }
+          </script>
+        </select>
+
+        <label
+          for="productPrice"
+          class="block mt-2 text-sm font-medium text-gray-600"
+          >Product Price</label
+        >
+        <input
+          type="text"
+          id="productPrice"
+          name="productPrice"
+          class="mt-1 p-2 border rounded-md w-full"
+        />
+
+        <button
+          type="button"
+          id="addProduct"
+          class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+        >
+          Add Product
+        </button>
+      </form>
+
+      <!-- Product List -->
+      <ul id="productList" class="space-y-4">
+        <!-- Product items will be added dynamically here -->
+      </ul>
+    </div>
+
+    <script>
+      // Sample product list
+      let productList = [];
+
+      // Function to add a product to the list
+      function addProduct() {
+        const productId = document.getElementById("productId").value;
+        const productName = document.getElementById("productName").value;
+        const quantity = document.getElementById("quantity").value;
+        const productPrice = document.getElementById("productPrice").value;
+
+        const product = {
+          id: productId,
+          name: productName,
+          quantity: quantity,
+          price: productPrice,
+        };
+
+        productList.push(product);
+        displayProductList();
+        resetForm();
+      }
+
+      // Function to display the product list
+      function displayProductList() {
+        const productListContainer = document.getElementById("productList");
+        productListContainer.innerHTML = "";
+
+        productList.forEach((product) => {
+          const listItem = document.createElement("li");
+          listItem.className =
+            "flex justify-between items-center bg-gray-100 p-4 rounded-md";
+
+          listItem.innerHTML = `
+                <div>${product.name} (ID: ${product.id}) - Quantity: ${
+            product.quantity
+          } - Price: ${product.price}</div>
+                <div>
+                    <button onclick="editProduct(${productList.indexOf(
+                      product
+                    )})" class="text-blue-500">Edit</button>
+                    <button onclick="deleteProduct(${productList.indexOf(
+                      product
+                    )})" class="text-red-500 ml-2">Delete</button>
+                </div>
+            `;
+
+          productListContainer.appendChild(listItem);
+        });
+      }
+
+      // Function to reset the form
+      function resetForm() {
+        document.getElementById("productId").value = "";
+        document.getElementById("productName").value = "";
+        document.getElementById("quantity").value = "10";
+        document.getElementById("productPrice").value = "";
+      }
+
+      // Function to edit a product
+      function editProduct(index) {
+        const product = productList[index];
+
+        // Set form values for editing
+        document.getElementById("productId").value = product.id;
+        document.getElementById("productName").value = product.name;
+        document.getElementById("quantity").value = product.quantity;
+        document.getElementById("productPrice").value = product.price;
+
+        // Remove the edited product from the list
+        productList.splice(index, 1);
+
+        // Display the updated list
+        displayProductList();
+      }
+
+      // Function to delete a product
+      function deleteProduct(index) {
+        productList.splice(index, 1);
+        displayProductList();
+      }
+
+      // Event listener for the "Add Product" button
+      document
+        .getElementById("addProduct")
+        .addEventListener("click", addProduct);
+    </script>
+  </body>
+</html>

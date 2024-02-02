@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cricket Score App</title>
+
+    <!-- Add Tailwind CSS CDN link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .coin-toss-result {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 1.5rem;
+      }
+
+      .final-scores {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+
+      .winner-text {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      /* Additional styling for buttons */
+      .custom-button {
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto mt-8 p-4 bg-white rounded shadow-lg">
+      <h1 class="text-2xl font-bold mb-4">Cricket Score App</h1>
+
+      <button
+        type="button"
+        class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded mb-4 custom-button"
+        onclick="tossCoin()"
+      >
+        Toss a Coin
+      </button>
+
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div class="team">
+          <h2 class="text-lg font-semibold mb-2">Team 1</h2>
+          <p class="mb-2">Score: <span id="team1Score">0</span></p>
+          <!-- Add the custom-button class to team 1 buttons -->
+          <button
+            type="button"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded custom-button"
+            onclick="updateScore('team1', 1)"
+          >
+            1 Run
+          </button>
+          <!-- Add the custom-button class to other buttons as well -->
+          <button
+            type="button"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded custom-button"
+            onclick="updateScore('team1', 2)"
+          >
+            2 Runs
+          </button>
+          <button
+            type="button"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded custom-button"
+            onclick="updateScore('team1', 4)"
+          >
+            4 Runs
+          </button>
+          <button
+            type="button"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded custom-button"
+            onclick="updateScore('team1', 6)"
+          >
+            6 Runs
+          </button>
+          <button
+            type="button"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded custom-button"
+            onclick="freezeTeam('team1')"
+            id="freezeTeam1Button"
+          >
+            Freeze Team 1
+          </button>
+        </div>
+
+        <div class="team">
+          <h2 class="text-lg font-semibold mb-2">Team 2</h2>
+          <p class="mb-2">Score: <span id="team2Score">0</span></p>
+          <button
+            type="button"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded custom-button"
+            onclick="updateScore('team2', 1)"
+          >
+            1 Run
+          </button>
+          <button
+            type="button"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded custom-button"
+            onclick="updateScore('team2', 2)"
+          >
+            2 Runs
+          </button>
+          <button
+            type="button"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded custom-button"
+            onclick="updateScore('team2', 4)"
+          >
+            4 Runs
+          </button>
+          <button
+            type="button"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded custom-button"
+            onclick="updateScore('team2', 6)"
+          >
+            6 Runs
+          </button>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded custom-button"
+        onclick="displayWinner()"
+        id="displayWinnerButton"
+      >
+        Display Winner
+      </button>
+
+      <button
+        type="button"
+        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded custom-button"
+        onclick="refreshPage()"
+      >
+        Refresh Page
+      </button>
+
+      <p class="mt-4" id="winner"></p>
+
+      <div id="finalScores" class="final-scores"></div>
+
+      <div id="coinTossResult" class="coin-toss-result"></div>
+    </div>
+    <script>
+      // JavaScript logic for updating scores, freezing teams, displaying the winner, resetting scores, and coin toss
+      let team1Score = 0;
+      let team2Score = 0;
+      let isTeam1Frozen = false;
+
+      function updateScore(team, runs) {
+        if (team === "team1" && !isTeam1Frozen) {
+          enableButtons("team1");
+          disableButtons("team2");
+          team1Score += runs;
+          document.getElementById("team1Score").innerText = team1Score;
+        } else if (team === "team2") {
+          enableButtons("team2");
+          disableButtons("team1");
+          team2Score += runs;
+          document.getElementById("team2Score").innerText = team2Score;
+        }
+      }
+
+      function freezeTeam(team) {
+        if (team === "team1") {
+          isTeam1Frozen = true;
+          document.getElementById("freezeTeam1Button").disabled = true;
+          document.getElementById(
+            "finalScores"
+          ).innerText = `(Team 1) Final Score : ${team1Score}`;
+        }
+      }
+
+      function disableButtons(team) {
+        const buttons = document.querySelectorAll(
+          `.${team} button.custom-button`
+        );
+        buttons.forEach((button) => {
+          button.disabled = true;
+        });
+      }
+
+      function enableButtons(team) {
+        const buttons = document.querySelectorAll(
+          `.${team} button.custom-button`
+        );
+        buttons.forEach((button) => {
+          button.disabled = false;
+        });
+      }
+
+      function displayWinner() {
+        let winner = "";
+        let runnerUp = "";
+
+        if (team1Score > team2Score) {
+          winner = `<h1 class='winner-text'>Team 1 Wins and the Score is ${team1Score}!</h1>`;
+          runnerUp = `<p> (Team 2) Runner-up Score : ${team2Score}</p>`;
+        } else if (team2Score > team1Score) {
+          winner = `<h1 class='winner-text'>Team 2 Wins and the Score is ${team2Score}!</h1>`;
+          runnerUp = `<p>(Team 1) Runner-up Score: ${team1Score}</p>`;
+        } else {
+          winner = "<h1 class='winner-text'>It's a Tie!</h1>";
+          runnerUp = `<p>Both teams have the same score: ${team1Score}</p>`;
+        }
+
+        document.getElementById(
+          "finalScores"
+        ).innerHTML = `${runnerUp}<br>${winner}`;
+
+        // Reset scores to zero after displaying the winner
+        team1Score = 0;
+        team2Score = 0;
+        document.getElementById("team1Score").innerText = team1Score;
+        document.getElementById("team2Score").innerText = team2Score;
+
+        // Enable the freeze buttons for both teams
+        isTeam1Frozen = false;
+        document.getElementById("freezeTeam1Button").disabled = false;
+
+        // Disable the Display Winner button after displaying the winner
+        document.getElementById("displayWinnerButton").disabled = true;
+
+        // Reload the page after 5 seconds
+        setTimeout(() => {
+          location.reload();
+        }, 5000);
+      }
+
+      function tossCoin() {
+        const result = Math.random() < 0.5 ? "Heads" : "Tails";
+        const coinTossResultElement = document.getElementById("coinTossResult");
+
+        coinTossResultElement.innerText = `Coin Toss Result: ${result}`;
+
+        // Clear the result after 3 seconds
+        setTimeout(() => {
+          coinTossResultElement.innerText = "";
+        }, 3000);
+      }
+
+      function refreshPage() {
+        location.reload();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <title>Portfolio Surya Krishna</title>
+    <style>
+      .dark-mode {
+        background-color: #1a202c;
+        color: #fff;
+      }
+
+      .dark-mode-toggle {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+      }
+      @media screen and (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        ul {
+          margin-top: 10px;
+        }
+
+        li {
+          margin-bottom: 10px;
+        }
+      }
+      a {
+        font-weight: bold;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .skills {
+        font-weight: bold;
+      }
+      #backToTopBtn {
+        transition: opacity 0.3s, visibility 0.3s;
+      }
+    </style>
+  </head>
+  <body class="bg-blue-100 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 text-white p-4 flex flex-col sm:flex-row">
+      <div class="container mx-auto flex justify-between items-center">
+        <span class="flex items-center">
+          <img
+            src="suryahemu.png"
+            alt="Your Name"
+            class="h-12 w-12 rounded-full mr-2"
+          />
+          <span class="text-2xl font-bold">Surya Krishna</span>
+        </span>
+        <ul class="flex space-x-4">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#resume">Resume</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header
+      class="bg-indigo-800 text-white h-screen flex flex-col justify-center items-center"
+      style="
+        background-image: url('Main/mitchell-luo-FWoq_ldWlNQ-unsplash.jpg');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <h1 class="text-5xl font-bold mb-4">Surya Krishna</h1>
+      <p class="text-lg">Web Developer</p>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container mx-auto my-8">
+      <h2 class="text-3xl font-bold mb-4">About Me</h2>
+      <p>
+        With three years of web development experience, I am a proficient
+        <a href="#" class="font-bold text-white bg-indigo-800"
+          >Node.js, React, JavaScript, and Mongoose developer.</a
+        >
+        Specializing in crafting robust and scalable applications, my expertise
+        lies in creating efficient server-side logic using Node.js and building
+        captivating user interfaces with React. Leveraging the versatility of
+        JavaScript, I ensure seamless client-side scripting for optimal user
+        experiences. Additionally, my proficiency in Mongoose establishes a
+        strong connection between applications and MongoDB, ensuring data
+        integrity. Explore my portfolio to witness the seamless fusion of
+        innovation and functionality, where every line of code reflects my
+        commitment to excellence in web development.
+      </p>
+      <section id="experience" class="container mx-auto my-8">
+        <!-- Web Developer Experience Card -->
+        <div class="bg-white p-6 mb-6 rounded-md shadow-md">
+          <h3 class="text-xl font-bold mb-2">Experience</h3>
+          <h3 class="text-xl font-bold mb-2">Web Developer</h3>
+          <p class="mb-2">
+            <em class="font-bold"
+              >Tata Consultancy Services | Hyderabad | April-2021 to Present</em
+            >
+          </p>
+          <ul class="list-disc list-inside">
+            <li>
+              Developed and maintained web applications using technologies such
+              as Node.js, React, and MongoDB.
+            </li>
+            <li>
+              Collaborated with cross-functional teams to deliver high-quality
+              software solutions.
+            </li>
+            <li>
+              Implemented responsive and user-friendly interfaces to enhance the
+              overall user experience.
+            </li>
+            <!-- Add more points as needed -->
+          </ul>
+        </div>
+
+        <!-- Frontend Developer Experience Card -->
+        <div class="bg-white p-6 mb-6 rounded-md shadow-md">
+          <h3 class="text-xl font-bold mb-2">Education</h3>
+          <p class="mb-2">
+            <em class="font-bold"
+              >Kshtriya College of Engg | Armoor | 2016-2019</em
+            >
+          </p>
+          <ul class="list-disc list-inside">
+            <li>
+              Designed and implemented user interfaces for various client
+              projects.
+            </li>
+            <li>
+              Ensured code quality and adherence to best practices in frontend
+              development.
+            </li>
+            <li>
+              Collaborated with designers to bring creative concepts to life.
+            </li>
+            <!-- Add more points as needed -->
+          </ul>
+        </div>
+
+        <!-- Add more experience cards as needed -->
+      </section>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-gray-100 py-8">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-4">Projects</h2>
+        <!-- Add your projects here -->
+        <div class="flex flex-wrap -mx-4">
+          <!-- Project 1 -->
+          <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+            <div class="bg-white p-4 shadow-md rounded">
+              <img
+                src="markus-spiske-cvBBO4PzWPg-unsplash.jpg"
+                alt="Project 6 Image"
+                class="w-full mb-4 rounded"
+              />
+              <h3 class="text-xl font-bold mb-2">Project 1</h3>
+              <p>Description of Project 1.</p>
+              <div class="flex justify-between mt-4">
+                <a
+                  href="html404.html"
+                  class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >Get Code</a
+                >
+                <button
+                  onclick="toggleLoveEmoji(this)"
+                  class="text-2xl cursor-pointer"
+                >
+                  🤍
+                </button>
+                <a
+                  href="html404.html"
+                  class="bg-green-500 text-white px-4 py-2 rounded-md"
+                  >Visit Site</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+            <div class="bg-white p-4 shadow-md rounded">
+              <img
+                src="markus-spiske-cvBBO4PzWPg-unsplash.jpg"
+                alt="Project 6 Image"
+                class="w-full mb-4 rounded"
+              />
+              <h3 class="text-xl font-bold mb-2">Project 2</h3>
+              <p>Description of Project 2.</p>
+              <div class="flex justify-between mt-4">
+                <a
+                  href="html404.html"
+                  class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >Get Code</a
+                >
+                <button
+                  onclick="toggleLoveEmoji(this)"
+                  class="text-2xl cursor-pointer"
+                >
+                  🤍
+                </button>
+                <a
+                  href="https://suryakrishna1997.github.io/Bats-and-Balls/"
+                  class="bg-green-500 text-white px-4 py-2 rounded-md"
+                  >Visit Site</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+            <div class="bg-white p-4 shadow-md rounded">
+              <img
+                src="markus-spiske-cvBBO4PzWPg-unsplash.jpg"
+                alt="Project 6 Image"
+                class="w-full mb-4 rounded"
+              />
+              <h3 class="text-xl font-bold mb-2">Project 3</h3>
+              <p>Description of Project 3.</p>
+              <div class="flex justify-between mt-4">
+                <a
+                  href="link-to-code"
+                  class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >Get Code</a
+                >
+                <button
+                  onclick="toggleLoveEmoji(this)"
+                  class="text-2xl cursor-pointer"
+                >
+                  🤍
+                </button>
+                <a
+                  href="link-to-site"
+                  class="bg-green-500 text-white px-4 py-2 rounded-md"
+                  >Visit Site</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Add more project cards as needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Projects Section -->
+    <section id="additional-projects" class="bg-gray-100 py-8">
+      <div class="container mx-auto">
+        <!-- Add your additional projects here -->
+        <div class="flex flex-wrap -mx-4">
+          <!-- Project 4 -->
+          <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+            <div class="bg-white p-4 shadow-md rounded">
+              <img
+                src="markus-spiske-cvBBO4PzWPg-unsplash.jpg"
+                alt="Project 6 Image"
+                class="w-full mb-4 rounded"
+              />
+              <h3 class="text-xl font-bold mb-2">Project 4</h3>
+              <p>Description of Project 4.</p>
+              <div class="flex justify-between mt-4">
+                <a
+                  href="html404.html"
+                  class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >Get Code</a
+                >
+                <button
+                  onclick="toggleLoveEmoji(this)"
+                  class="text-2xl cursor-pointer"
+                >
+                  🤍
+                </button>
+                <a
+                  href="html404.html"
+                  class="bg-green-500 text-white px-4 py-2 rounded-md"
+                  >Visit Site</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+            <div class="bg-white p-4 shadow-md rounded">
+              <img
+                src="markus-spiske-cvBBO4PzWPg-unsplash.jpg"
+                alt="Project 6 Image"
+                class="w-full mb-4 rounded"
+              />
+              <h3 class="text-xl font-bold mb-2">Todo-List</h3>
+              <p>Todo-List for making todos</p>
+              <div class="flex justify-between mt-4">
+                <a
+                  href="Projects/TodoList.html"
+                  class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >Get Code</a
+                >
+                <button
+                  onclick="toggleLoveEmoji(this)"
+                  class="text-2xl cursor-pointer"
+                >
+                  🤍
+                </button>
+                <a
+                  href="Projects/TodoList.html"
+                  class="bg-green-500 text-white px-4 py-2 rounded-md"
+                  >Visit Site</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+            <div class="bg-white p-4 shadow-md rounded">
+              <img
+                src="markus-spiske-cvBBO4PzWPg-unsplash.jpg"
+                alt="Project 6 Image"
+                class="w-full mb-4 rounded"
+              />
+
+              <h3 class="text-xl font-bold mb-2">Password Generator</h3>
+              <p>Generates random Password</p>
+              <div class="flex justify-between mt-4">
+                <a
+                  href="Main/Projects/passwordGenerator.html"
+                  class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >Get Code</a
+                >
+                <button
+                  onclick="toggleLoveEmoji(this)"
+                  class="text-2xl cursor-pointer"
+                >
+                  🤍
+                </button>
+                <a
+                  href="Projects/passwordGenerator.html"
+                  class="bg-green-500 text-white px-4 py-2 rounded-md"
+                  >Visit Site</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Add more project cards as needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container mx-auto my-8">
+      <h2 class="text-3xl font-bold mb-4">Skills</h2>
+      <div class="bg-white p-4 shadow-md rounded">
+        <ul class="list-disc list-inside">
+          <li class="skills">HTML5</li>
+          <li class="skills">CSS3 and Tailwind CSS, BootStrap</li>
+          <li class="skills">JavaScript</li>
+          <li class="skills">React</li>
+          <li class="skills">NodeJS</li>
+          <li class="skills">MongoDB</li>
+          <!-- Add more skills as needed -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-100 py-8">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-4">Contact Me</h2>
+        <p>Mobile: <strong>&nbsp;&nbsp;+91 84990 49398</strong></p>
+        <p>
+          Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong
+            >suryahemanth87@gmail.com</strong
+          >
+        </p>
+
+        <p>
+          LinkedIn:
+          <a
+            href="https://www.linkedin.com/in/surya-hemanth-krishna-59b94b2a4/"
+            target="_blank"
+            >Surya Krishna</a
+          >
+        </p>
+        <p>
+          GitHub:
+          <a href="https://github.com/suryakrishna1997/" target="_blank"
+            >&nbsp;&nbsp;https://github.com/suryakrishna1997/</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <section id="resume" class="container mx-auto my-8">
+      <h2 class="text-3xl font-bold mb-4">Resume</h2>
+      <p>Retrieve a copy of my resume for more information.</p>
+      <a
+        href="Surya Hemanth Krishna resume.docx"
+        download="surya_krishna.docx"
+        class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 inline-block"
+        >Download Resume</a
+      >
+    </section>
+
+    <!-- <span>
+      <div class="dark-mode-toggle">
+        <button onclick="toggleDarkMode()">Dark</button>
+      </div>
+    </span> -->
+
+    <!-- Form Section -->
+    <section id="form" class="bg-gray-200 py-8">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-4">Contact Form</h2>
+        <form action="#" id="myForm">
+          <!-- You can add form fields as needed -->
+          <div class="mb-4">
+            <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
+              >Name:</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="number"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Phone:</label
+            >
+            <input
+              type="number"
+              id="phone"
+              name="phone"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="email"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Email:</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              required
+            />
+          </div>
+          <!-- Add more form fields as needed -->
+
+          <div class="mb-6">
+            <button
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              onclick="submit()"
+            >
+              Submit
+            </button>
+            <div
+              id="backToTopBtn"
+              class="fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded cursor-pointer"
+            >
+              🔝
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2024 Surya Krishna. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Your additional JavaScript goes here -->
+    <script>
+      function handleFormSubmission(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Add your form processing logic here
+        // For now, let's just display an alert
+        alert("Form submitted!");
+      }
+
+      // Attach event listener to the form
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", handleFormSubmission);
+
+      function toggleLoveEmoji(button) {
+        button.innerHTML = button.innerHTML === "🤍" ? "🤍" : "❤️";
+      }
+      function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle("dark-mode");
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        const backToTopBtn = document.getElementById("backToTopBtn");
+
+        // Show or hide the button based on scroll position
+        window.onscroll = function () {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            backToTopBtn.style.opacity = "1";
+            backToTopBtn.style.visibility = "visible";
+          } else {
+            backToTopBtn.style.opacity = "0";
+            backToTopBtn.style.visibility = "hidden";
+          }
+        };
+
+        // Scroll to the top when the button is clicked
+        backToTopBtn.onclick = function () {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        };
+      });
+    </script>
+  </body>
+</html>

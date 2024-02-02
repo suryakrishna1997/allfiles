@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <title>Cake Shop</title>
+    <style>
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4caf50; /* Green background color */
+        color: white; /* White text color */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px; /* Rounded corners */
+      }
+      .cake-card {
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .cake-card:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <a href="business.html" class="button">Home</a>
+
+    <div class="container mx-auto my-8">
+      <h1 class="text-3xl font-bold mb-6">Cake Varieties</h1>
+      <div
+        id="cakeList"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+      >
+        <!-- Cake cards will be dynamically added here -->
+      </div>
+    </div>
+
+    <script>
+      // Sample cake data (you can replace this with your actual data)
+      const cakes = [
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+        {
+          name: "Chocolate Cake",
+          price: 20,
+          image: "images/yulia-khlebnikova-FDYbS43jUrU-unsplash.jpg",
+        },
+
+        // Add more cake varieties as needed
+      ];
+
+      // Function to create a cake card
+      function createCakeCard(cake) {
+        const card = document.createElement("div");
+        card.className = "bg-white p-4 rounded-md shadow-md cake-card";
+
+        const image = document.createElement("img");
+        image.src = cake.image;
+        image.alt = cake.name;
+        image.className = "w-full h-40 object-cover mb-4";
+
+        const name = document.createElement("p");
+        name.textContent = cake.name;
+        name.className = "text-lg font-bold mb-2";
+
+        const price = document.createElement("p");
+        price.textContent = `$${cake.price.toFixed(2)}`;
+        price.className = "text-gray-700 mb-2";
+
+        const addToCartBtn = document.createElement("button");
+        addToCartBtn.textContent = "Add to Cart";
+        addToCartBtn.className =
+          "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700";
+        addToCartBtn.addEventListener("click", () => addToCart(cake.name));
+
+        card.appendChild(image);
+        card.appendChild(name);
+        card.appendChild(price);
+        card.appendChild(addToCartBtn);
+
+        return card;
+      }
+
+      // Function to display cake cards on the page
+      function displayCakes() {
+        const cakeList = document.getElementById("cakeList");
+        cakes.forEach((cake) => {
+          const cakeCard = createCakeCard(cake);
+          cakeList.appendChild(cakeCard);
+        });
+      }
+      function addToCart(cakeName) {
+        alert(`Added "${cakeName}" to cart`);
+      }
+
+      // Call the displayCakes function to populate the page with cake cards
+      displayCakes();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Management System</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <!-- Add your custom styles here -->
+  </head>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 50px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #555;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      min-width: 160px;
+    }
+
+    .dropdown-content a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #777;
+      border-bottom: 2px solid white;
+      transform: scale(1.1);
+    }
+  </style>
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 text-white p-4">
+      <div class="dropdown container mx-auto flex justify-between items-center">
+        <a href="#" class="text-xl font-bold">Home</a>
+      </div>
+      &nbsp; &nbsp; &nbsp; &nbsp;
+
+      <div class="dropdown mx-auto flex justify-between items-center">
+        <a href="#">About</a>
+        <div class="dropdown-content">
+          <a href="#">Submenu 4</a>
+          <a href="#">Submenu 5</a>
+          <a href="#">Submenu 6</a>
+        </div>
+      </div>
+      &nbsp; &nbsp; &nbsp; &nbsp;
+
+      <div class="dropdown mx-auto flex justify-between items-center">
+        <a href="#">Services</a>
+        <div class="dropdown-content">
+          <a href="#">Submenu 7</a>
+          <a href="#">Submenu 8</a>
+          <a href="#">Submenu 9</a>
+        </div>
+      </div>
+      &nbsp; &nbsp; &nbsp; &nbsp;
+      <div class="dropdown mx-auto flex justify-between items-center">
+        <a href="#">Contact</a>
+        <div class="dropdown-content">
+          <a href="#">Submenu 1</a>
+          <a href="#">Submenu 2</a>
+          <a href="#">Submenu 3</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Doctor Available Timings -->
+
+    <!-- Patient List -->
+
+    <!-- Outpatient Department (OPD) -->
+
+    <!-- Add your JavaScript code here (if needed) -->
+  </body>
+</html>

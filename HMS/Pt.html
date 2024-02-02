@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Record</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+  </head>
+
+  <body class="bg-gray-100">
+    <div class="container mx-auto my-4">
+      <h2 class="text-2xl font-bold mb-4">Patient List</h2>
+
+      <!-- Patient Form -->
+      <form id="patientForm" class="mb-4">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label
+              for="patientId"
+              class="block text-sm font-medium text-gray-700"
+              >Patient ID</label
+            >
+            <input
+              type="text"
+              id="patientName"
+              name="patientName"
+              class="mt-1 p-2 w-full border border-gray-300 rounded-md"
+            />
+          </div>
+          <div>
+            <label
+              for="patientName"
+              class="block text-sm font-medium text-gray-700"
+              >Patient Name</label
+            >
+            <input
+              type="text"
+              id="patientName"
+              name="patientName"
+              class="mt-1 p-2 w-full border border-gray-300 rounded-md"
+            />
+          </div>
+          <div>
+            <label
+              for="patientAge"
+              class="block text-sm font-medium text-gray-700"
+              >Age</label
+            >
+            <input
+              type="number"
+              id="patientAge"
+              name="patientAge"
+              class="mt-1 p-2 w-full border border-gray-300 rounded-md"
+            />
+          </div>
+          <div>
+            <label
+              for="consultingDoctor"
+              class="block text-sm font-medium text-gray-700"
+              >Consulting Doctor</label
+            >
+            <select
+              id="consultingDoctor"
+              name="consultingDoctor"
+              class="mt-1 p-2 w-full border border-gray-300 rounded-md"
+            >
+              <!-- Add doctor options dynamically using JavaScript -->
+              <option value="1">Dr. Mahitha</option>
+              <option value="2">Dr. Sreeram</option>
+              <option value="3">Dr. Manju latha</option>
+              <option value="4">Dr. Laxma reddy</option>
+              <option value="5">Dr. Gokul</option>
+              <option value="6">Dr. Shyam Sunder</option>
+            </select>
+          </div>
+          <!-- <div>
+            <label
+              for="roomNumber"
+              class="block text-sm font-medium text-gray-700"
+              >Room Number</label
+            >
+            <input
+              type="text"
+              id="roomNumber"
+              name="roomNumber"
+              readonly
+              class="mt-1 p-2 w-full border border-gray-300 rounded-md"
+            />
+          </div> -->
+          <div>
+            <label for="fee" class="block text-sm font-medium text-gray-700"
+              >OP Fee</label
+            >
+            <input
+              type="number"
+              id="fee"
+              name="fee"
+              class="mt-1 p-2 w-full border border-gray-300 rounded-md"
+            />
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <button
+            type="button"
+            onclick="addPatient()"
+            class="px-4 py-2 bg-blue-500 text-white rounded-md"
+          >
+            Add Patient
+          </button>
+        </div>
+      </form>
+
+      <!-- Patient Table -->
+      <table
+        id="patientTable"
+        class="min-w-full bg-white border border-gray-300"
+      >
+        <!-- Table headers -->
+        <thead>
+          <tr>
+            <th class="border border-gray-300 px-4 py-2">Patient ID</th>
+            <th class="border border-gray-300 px-4 py-2">Name</th>
+            <th class="border border-gray-300 px-4 py-2">Age</th>
+            <th class="border border-gray-300 px-4 py-2">Consulting Doctor</th>
+            <th class="border border-gray-300 px-4 py-2">Room Number</th>
+            <th class="border border-gray-300 px-4 py-2">OP Fee</th>
+
+            <th class="border border-gray-300 px-4 py-2">Actions</th>
+          </tr>
+        </thead>
+        <!-- Table body -->
+        <tbody>
+          <!-- Patient rows will be dynamically added here -->
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      // Function to add a patient
+      function addPatient() {
+        // const patientID = document.getElementById("patientid").value;
+
+        const patientName = document.getElementById("patientName").value;
+        const patientAge = document.getElementById("patientAge").value;
+        const patientFee = document.getElementById("fee").value;
+
+        const consultingDoctorId =
+          document.getElementById("consultingDoctor").value;
+
+        // Validate input
+        if (!patientName || !patientAge || !consultingDoctorId) {
+          alert("All fields are required.");
+          return;
+        }
+
+        // Generate a unique patient ID (for simplicity, using a timestamp)
+        var patientID = Math.floor(Math.random() * 1000);
+
+        // Create a new row in the table
+        const tableBody = document.querySelector("#patientTable tbody");
+        const newRow = tableBody.insertRow();
+
+        // Populate the row with data
+        newRow.innerHTML = `
+            <td class="border border-gray-300 px-4 py-2">${patientID}</td>
+            <td class="border border-gray-300 px-4 py-2">${patientName}</td>
+            <td class="border border-gray-300 px-4 py-2">${patientAge}</td>
+            <td class="border border-gray-300 px-4 py-2">${
+              document.getElementById("consultingDoctor").options[
+                document.getElementById("consultingDoctor").selectedIndex
+              ].text
+            }</td>
+            <td class="border border-gray-300 px-4 py-2"><input type="text" value="Room ${patientID}" readonly class="border-none focus:outline-none"></td>
+            <td class="border border-gray-300 px-4 py-2">${patientFee}</td>
+
+            <td class="border border-gray-300 px-4 py-2">
+                <button onclick="editPatient(${patientID})" class="text-blue-500">Edit</button>
+                <button onclick="deletePatient(${patientID})" class="text-red-500">Delete</button>
+            </td>
+        `;
+        document.getElementById("patientForm").reset();
+      }
+
+      // Function to edit a patient
+      function editPatient(patientID) {
+        // Logic for editing a patient
+        const patientName = prompt("Enter the updated name:");
+        const patientAge = prompt("Enter the updated age:");
+
+        if (!patientName || !patientAge) {
+          alert("All fields are required.");
+          return;
+        }
+
+        // Find the row with the matching patient ID
+        const tableRows = document.querySelectorAll("#patientTable tbody tr");
+        let targetRow;
+        for (const row of tableRows) {
+          const idCell = row.cells[0]; // Assuming the first cell contains the patient ID
+          if (idCell.textContent === patientID.toString()) {
+            targetRow = row;
+            break;
+          }
+        }
+
+        if (targetRow) {
+          // Update the row in the table with the new data
+          targetRow.cells[1].textContent = patientName;
+          targetRow.cells[2].textContent = patientAge;
+          targetRow.cells[3].textContent = patientFee;
+        }
+      }
+
+      // Function to delete a patient
+      function deletePatient(patientID) {
+        // Logic for deleting a patient
+        const confirmation = confirm(
+          "Are you sure you want to delete this patient?"
+        );
+        if (confirmation) {
+          // Find the row with the matching patient ID
+          const tableBody = document.querySelector("#patientTable tbody");
+          const rows = tableBody.getElementsByTagName("tr");
+
+          for (let i = 0; i < rows.length; i++) {
+            const rowPatientID = parseInt(rows[i].cells[0].textContent);
+
+            if (rowPatientID === patientID) {
+              rows[i].remove();
+              break; // Exit the loop once the row is found and removed
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

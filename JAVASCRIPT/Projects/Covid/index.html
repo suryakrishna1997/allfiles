@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Joke Generator</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <h1 class="mt-5">Random Joke Generator</h1>
+      <div id="joke-container" class="mt-4">
+        <p id="joke-text" class="lead">Click the button for a joke!</p>
+      </div>
+      <button id="generate-joke" class="btn btn-primary mt-3">
+        Generate Joke
+      </button>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Array of jokes
+      const jokes = [
+        "Why don't scientists trust atoms? Because they make up everything!",
+        "Parallel lines have so much in common. It's a shame they'll never meet.",
+        "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+        "Why did the scarecrow win an award? Because he was outstanding in his field!",
+        "I only know 25 letters of the alphabet. I don't know y.",
+        "What do you call fake spaghetti? An impasta.",
+        "fuck youuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu",
+      ];
+
+      // Function to generate a random joke
+      function generateRandomJoke() {
+        const randomIndex = Math.floor(Math.random() * jokes.length);
+        const jokeText = jokes[randomIndex];
+        document.getElementById("joke-text").textContent = jokeText;
+      }
+
+      // Event listener for the button click
+      document
+        .getElementById("generate-joke")
+        .addEventListener("click", generateRandomJoke);
+
+      // Initial joke generation on page load
+      generateRandomJoke();
+    </script>
+  </body>
+</html>
